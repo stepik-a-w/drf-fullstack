@@ -15,14 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
 import sample.views as sample_views
+import api.views as api_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', sample_views.sample_view, name='main'),
-    path('api/get-username/', sample_views.sample_get_username),
-    path('api/get-options/', sample_views.sample_get_options),
-    path('api/add-request/', sample_views.sample_add_request),
+    path('', sample_views.index_view, name='main'),
+
+    path('api/get-username/', api_views.get_username),
+    path('api/get-options/', api_views.get_options),
+    path('api/add-request/', api_views.add_request),
 
 ]
 
