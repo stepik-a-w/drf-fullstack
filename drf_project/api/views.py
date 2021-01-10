@@ -1,20 +1,23 @@
-from rest_framework import status
+import json
+
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-import json
 
 USERNAME = "Sir Grover Robinson"
 OPTIONS = ["Python", "Java", "C", "Kotlin"]
+
 
 # Example api view
 
 @api_view(http_method_names=['GET'])
 def get_username(request):
-    return Response({"status":"ok"})
+    return Response({"status": "ok"})
+
 
 @api_view(http_method_names=['GET'])
 def get_options(request):
-    return Response(OPTIONS)\
+    return Response(OPTIONS)
+
 
 @api_view(http_method_names=['POST'])
 def add_request(request):
