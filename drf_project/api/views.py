@@ -11,7 +11,7 @@ OPTIONS = ["Python", "Java", "C", "Kotlin"]
 
 @api_view(http_method_names=['GET'])
 def get_username(request):
-    return Response({"status": "ok"})
+    return Response({"full_name": "Colleen Mirela"})
 
 
 @api_view(http_method_names=['GET'])
