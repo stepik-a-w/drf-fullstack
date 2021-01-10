@@ -43,7 +43,7 @@
         document.getElementById("trigger1").addEventListener("click",function(e){
             axios.get('http://lvh.me:8000/api/get-username/').then(response => {
                 console.log(`GET users`, response.data);
-                document.getElementById("input1").value = response.data.status
+                document.getElementById("input1").value = response.data.full_name
             })
         },false);
 
