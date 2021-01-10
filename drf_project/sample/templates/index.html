@@ -87,8 +87,6 @@
 
             axios.post('http://lvh.me:8000/api/add-request/', {name:name, phone:phone}).then(response => {
                 console.log(`GET users`, response.data);
-                document.getElementById("input1").value = response.data.status
-
                 alert("Данные отправлены")
 
             })
