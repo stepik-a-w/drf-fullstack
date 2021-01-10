@@ -12,6 +12,9 @@
 
         <div class="my-5">
             <h4>Загрузка значения</h4>
+
+            <p>Данные будут загружены GET запросом на /api/get-username//</p>
+
             <label class="mt-2"> Имя пользователя </label>
             <input type="email" class="form-control" id="input1" placeholder="Загрузите данные">
             <button type="button" class="btn btn-primary mt-3" id="trigger1">Загрузить</button>
@@ -20,6 +23,9 @@
 
         <div class="my-5">
             <h4>Загрузка опций в список</h4>
+
+            <p>Данные будут загружены GET запросом на /api/get-options/</p>
+
             <label class="mt-2"> Язык программирования </label>
             <select  class="form-control" id="input2" placeholder="Загрузите данные"></select>
             <button type="button" class="btn btn-primary mt-3" id="trigger2">Загрузить</button>
@@ -28,6 +34,9 @@
 
         <div class="my-5">
             <h4>Отправка данных на сервер</h4>
+
+            <p>Данные будут отправлены POST запросом и сохранены в файле data_file.json</p>
+
             <label class="mt-2"> Имя </label>
             <input class="form-control" id="input31" value="Sir Grover Robinson">
             <label class="mt-2"> Телефон </label>
@@ -44,6 +53,7 @@
             axios.get('http://lvh.me:8000/api/get-username/').then(response => {
                 console.log(`GET users`, response.data);
                 document.getElementById("input1").value = response.data.full_name
+                alert("Данные загружены")
             })
         },false);
 
@@ -63,6 +73,8 @@
                     select.appendChild(option);
                 }
 
+                alert("Данные загружены")
+
             })
         },false);
 
@@ -76,10 +88,12 @@
             axios.post('http://lvh.me:8000/api/add-request/', {name:name, phone:phone}).then(response => {
                 console.log(`GET users`, response.data);
                 document.getElementById("input1").value = response.data.status
+
+                alert("Данные отправлены")
+
             })
 
         },false);
-
 
     </script>
 </body>
