@@ -12,29 +12,22 @@
 
         <div class="my-5">
             <h4>Загрузка значения</h4>
+            <p>Здесь мы покажем, как выполняется GET запрос.</p>
+            <p>Нажмите, чтобы получить погоду на сегодня</p>
+            <p>Данные будут загружены GET запросом на /api/get-weather/</p>
 
-            <p>Данные будут загружены GET запросом на /api/get-username//</p>
+            <p>Температура: <span id="field_temp">--</span> C</p>
+            <p>Погода: <span id="field_weather">--</span></p>
+            <p>Влажность: <span id="field_humidity">--</span> %</p>
 
-            <label class="mt-2"> Имя пользователя </label>
-            <input type="email" class="form-control" id="input1" placeholder="Загрузите данные">
             <button type="button" class="btn btn-primary mt-3" id="trigger1">Загрузить</button>
         </div>
         <hr>
 
-        <div class="my-5">
-            <h4>Загрузка опций в список</h4>
-
-            <p>Данные будут загружены GET запросом на /api/get-options/</p>
-
-            <label class="mt-2"> Язык программирования </label>
-            <select  class="form-control" id="input2" placeholder="Загрузите данные"></select>
-            <button type="button" class="btn btn-primary mt-3" id="trigger2">Загрузить</button>
-        </div>
-        <hr>
 
         <div class="my-5">
             <h4>Отправка данных на сервер</h4>
-
+            <p>Здесь мы покажем, как выполняется POST запрос с отправкой заявки.</p>
             <p>Данные будут отправлены POST запросом и сохранены в файле data_file.json</p>
 
             <label class="mt-2"> Имя </label>
@@ -50,31 +43,14 @@
     <script>
 
         document.getElementById("trigger1").addEventListener("click",function(e){
-            axios.get('http://lvh.me:8000/api/get-username/').then(response => {
+            axios.get('http://lvh.me:8000/api/get-weather/').then(response => {
                 console.log(`GET users`, response.data);
-                document.getElementById("input1").value = response.data.full_name
-                alert("Данные загружены")
-            })
-        },false);
 
-        ///
-
-        document.getElementById("trigger2").addEventListener("click",function(e){
-            axios.get('http://lvh.me:8000/api/get-options/').then(response => {
-
-                options = response.data
-                console.log(`GET options`, options);
-                select = document.getElementById("input2")
-
-                for (var i = 0; i < options.length; i++) {
-                    var option = document.createElement("option");
-                    option.value = options[i];
-                    option.text = options[i];
-                    select.appendChild(option);
-                }
+                document.getElementById("field_temp").innerHTML = response.data.temp
+                document.getElementById("field_weather").innerHTML = response.data.weather
+                document.getElementById("field_humidity").innerHTML = response.data.humidity
 
                 alert("Данные загружены")
-
             })
         },false);
 

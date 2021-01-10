@@ -23,8 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', sample_views.index_view, name='main'),
 
-    path('api/get-username/', api_views.get_username),
-    path('api/get-options/', api_views.get_options),
+    path('api/get-weather/', api_views.get_weather),
     path('api/add-request/', api_views.add_request),
 
 ]
