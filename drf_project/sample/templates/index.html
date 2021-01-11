@@ -43,7 +43,7 @@
     <script>
 
         document.getElementById("trigger1").addEventListener("click",function(e){
-            axios.get('http://lvh.me:8000/api/get-weather/').then(response => {
+            axios.get('/api/get-weather/').then(response => {
                 console.log(`GET users`, response.data);
 
                 document.getElementById("field_temp").innerHTML = response.data.temp
@@ -61,7 +61,7 @@
             name = document.getElementById("input31").value
             phone = document.getElementById("input32").value
 
-            axios.post('http://lvh.me:8000/api/add-request/', {name:name, phone:phone}).then(response => {
+            axios.post('/api/add-request/', {name:name, phone:phone}).then(response => {
                 console.log(`GET users`, response.data);
                 alert("Данные отправлены")
 
